@@ -13,11 +13,29 @@
   <property name="windowTitle">
    <string>Super Mega Hyper CD Explorer</string>
   </property>
+  <property name="toolTip">
+   <string notr="true"/>
+  </property>
+  <property name="statusTip">
+   <string notr="true"/>
+  </property>
+  <property name="whatsThis">
+   <string notr="true"/>
+  </property>
+  <property name="accessibleName">
+   <string notr="true"/>
+  </property>
+  <property name="accessibleDescription">
+   <string notr="true"/>
+  </property>
+  <property name="windowFilePath">
+   <string notr="true"/>
+  </property>
   <property name="unifiedTitleAndToolBarOnMac">
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="albumField">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -27,7 +45,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
+   <widget class="QLineEdit" name="yearField">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -37,7 +55,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="insertButtom">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -50,7 +68,7 @@
      <string>Insert</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="artistField">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -109,7 +127,7 @@
      </rect>
     </property>
     <property name="sizePolicy">
-     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+     <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
       <horstretch>0</horstretch>
       <verstretch>0</verstretch>
      </sizepolicy>
@@ -199,7 +217,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="removeButton">
     <property name="geometry">
      <rect>
       <x>290</x>
@@ -235,18 +253,41 @@
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>425</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>insertButtom</sender>
+   <signal>clicked()</signal>
+   <receiver>insertButtom</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>205</x>
+     <y>346</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>207</x>
+     <y>346</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>removeButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>removeButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>312</x>
+     <y>348</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>312</x>
+     <y>348</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
