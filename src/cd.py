@@ -1,14 +1,22 @@
-import sys
-from PyQt4 import QtGui
-from PyQt4 import QtCore
+'''
+Created on 13/05/2012
 
-from main_window import Ui_MainWindow
+@author: rafael
+'''
 
-class Cd():
+class Cd(object):
+    
+    def __init__(self,cod = None,album='', artist='', year=''):
+        self.cod = cod
+        self.album = album
+        self.artist = artist
+        self.year = year
+        
+    def clean(self): 
+        self.cod = None
+        self.artist = ''
+        self.artist = ''
+        self.year = '' 
+            
 
-	def __init__(self, artist, album, year):
-		self.artist = artist
-		self.album = album
-		self.year = year		
-		
-	
+    
