@@ -11,6 +11,7 @@ class View():
 		year = raw_input("Year: ")
 		newCd = (artist,album,year)
 		controller.callInsert(newCd)
+		print("New cd inserted sucessfully")
 		self.showMenu		
 
 	def remove(self):

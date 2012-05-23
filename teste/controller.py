@@ -6,7 +6,7 @@ class Controller(object):
     def __init__(self):
         self.model = Cd()
         self.view = View()
-        pass
+        
 
     def callInsert(self, cd):
         self.model.save(cd)
