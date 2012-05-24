@@ -12,18 +12,16 @@ class Controller(object):
     @Debugar 
     def main(self):
         ''' Executa a tela principal '''
-        #print "==> Controller.main()"
         self.view.showMenu()
 
     @Debugar 
     def callInsert(self):
         ''' Lê os dados, adiciona e mostra se deu certo '''
-        #print "==> Callback: callInsert()"
         artist = raw_input("Artista: ")
         album = raw_input("Album: ")
         year = raw_input("Ano: ")
         if ((artist == '') or (album == '') or (year == '')):
-            print "Campos invalidos inseridos, saindo."
+            print "Campos inválidos inseridos, saindo."
             return
         else:
             self.model.save(Cd(artist=artist, album=album, year=year))
@@ -32,7 +30,6 @@ class Controller(object):
     @Debugar        
     def callRemove(self):
         ''' Mostra a lista, lê um código e manda remover. '''
-        #print "==> Callback: callListAll()"
         self.callListAll()
         selection = raw_input("Qual entrada tu desejas remover?  ")
         result = self.model.selectOne(selection)
@@ -46,7 +43,7 @@ class Controller(object):
     @Debugar 
     def callListAll(self):
         ''' Imprime a lista de cds e em seguida o menu '''
-        # print "==> Callback: callListAll()"
+        print "COD","Artista".ljust(39),"Álbum".ljust(40),"Ano"
         for cd in self.model.getAll():
             print cd
 

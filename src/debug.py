@@ -1,25 +1,20 @@
 # -*- encoding: utf-8 -*-
-
-DebuggerAtivo=False
+DebuggerAtivo=True
+Profundidade=''
+''' Cada chamada de função decorada incrementa a profundidade '''
+IncrementoDaProfundidade='  '
 
 def Debugar(fn):
-    global DebuggerAtivo
-    import inspect
-    varList, _, _, default = inspect.getargspec(fn)
-    d = {}
-    if default is not None:
-        d = dict((varList[-len(default):][i], v) for i, v in enumerate(default))
+    ''''Mostra no terminal as chamadas de funções decoradas com @Debugar ''' 
     def f(*argt, **argd):
+        global Profundidade, DebuggerAtivo
         if DebuggerAtivo:
-            print ('\033[1;32mEntrando em %s\033[0m' % fn).center(100, '=')
-            print d
+            print Profundidade+'\033[1m==>\033[32m Entrando em %s\033[0m' % fn
+        Profundidade += IncrementoDaProfundidade
         ret = fn(*argt, **argd)
+        Profundidade = Profundidade[:-len(IncrementoDaProfundidade)]
         if DebuggerAtivo:
-            try:
-                print 'Retorno: %s' % ret
-            except:
-                pass
-            print ('\033[1;34mExit %s\033[0m' % fn).center(100, '=')
+            print Profundidade+'\033[1m<==\033[34m Fim %s\033[0m' % fn
         return ret
     return f
 

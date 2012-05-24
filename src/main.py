@@ -4,11 +4,12 @@ import controller
 from model import Cd
 
 if __name__ == "__main__":
-    ##print "==> Iniciando"
-    model = Cd('artist', 'album', 'year')
+    model = Cd(artist='artist', album='album', year='year')
     model.createDatabase()
     try:
-        controller.Controller().main()
+        app = controller.Controller()
+        print "Iniciando aplicação."
+        app.main()
     except KeyboardInterrupt, e:
         pass
 
