@@ -47,6 +47,18 @@ class Cd(object):
         cur.execute(sql, (cod,))
         con.commit()
         con.close()
+
+    def selectOne(self, cod):
+        #print "==> Cd.select()One"
+        sql = 'SELECT COUNT(*) FROM cds WHERE cod = ?'
+        con = sqlite3.connect(self.database)
+        
+        cur = con.cursor()
+        for name in ('bar','foo'): 
+            result = cur.execute(sql, (cod,))        
+            data = cur.fetchone()[0]
+        con.close()        
+        return data        
         
     @Logar  
     def getAll(self):

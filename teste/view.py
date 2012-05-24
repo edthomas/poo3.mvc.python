@@ -6,11 +6,7 @@ class View():
     def __init__(self, controller):
         #print "==> View.__init__()"
         self.controller = controller
-
-    @Logar 
-    def printHeader(self):
-        print "Artista / Album / Ano"    
-
+        
     @Logar 
     def invalidMenuEntry(self):
         print "Opção inválida!"
