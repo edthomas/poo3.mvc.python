@@ -1,5 +1,7 @@
-#Thu May 24 03:02:44 BRT 2012
+#Thu May 24 03:33:24 BRT 2012
 eclipse.preferences.version=1
+encoding//teste/controller.py=utf-8
 encoding//teste/debug.py=utf-8
 encoding//teste/main.py=utf-8
 encoding//teste/model.py=utf-8
+encoding//teste/view.py=utf-8

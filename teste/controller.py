@@ -18,26 +18,26 @@ class Controller(object):
     @Logar 
     def callInsert(self):
         ''' Lê os dados, adiciona e mostra se deu certo '''
-        print "==> Callback: callInsert()"
-        artist = raw_input("Artist: ")
+        #print "==> Callback: callInsert()"
+        artist = raw_input("Artista: ")
         album = raw_input("Album: ")
-        year = raw_input("Year: ")
+        year = raw_input("Ano: ")
         self.model.save(Cd(artist=artist, album=album, year=year))
-        print "New cd inserted sucessfully"
+        print "Novo cd inserido com sucesso!"
 
     @Logar         
     def callRemove(self):
         ''' Mostra a lista, lê um código e manda remover. '''
-        print "==> Callback: callListAll()"
+        #print "==> Callback: callListAll()"
         self.callListAll()
-        selection = raw_input("Which one do you wanna remove?:  ")
+        selection = raw_input("Qual entrada tu desejas remover?  ")
         self.model.delete(selection)
         print "Done."
 
     @Logar 
     def callListAll(self):
         ''' Imprime a lista de cds e em seguida o menu '''
-        print "==> Callback: callListAll()"
+       # print "==> Callback: callListAll()"
         for cd in self.model.getAll():
             print cd
 

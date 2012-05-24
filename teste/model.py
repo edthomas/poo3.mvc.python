@@ -5,7 +5,7 @@ from debug import Logar
 class Cd(object):  
     @Logar  
     def __init__(self, cod=None, artist='', album='' , year='', database='database.sqlite'):
-        print "==> Cd.__init__(",cod,",",artist,",",album,",",year,",",database,")"
+        #print "==> Cd.__init__(",cod,",",artist,",",album,",",year,",",database,")"
         self.cod = cod
         self.artist = artist
         self.album = album
@@ -14,7 +14,7 @@ class Cd(object):
 
     @Logar  
     def createDatabase(self):        
-        print "==> Cd.createDatabase()"
+        #print "==> Cd.createDatabase()"
         connection = sqlite3.connect('database.sqlite')
         cur = connection.cursor()
         cur.execute('CREATE TABLE IF NOT EXISTS cds (cod INTEGER PRIMARY KEY,artist TEXT, album TEXT,year TEXT)')
@@ -28,7 +28,7 @@ class Cd(object):
 
     @Logar  
     def save(self, cd):  
-        print "==> Cd.save(",cd.__dict__,")"
+        #print "==> Cd.save(",cd.__dict__,")"
         sql = 'INSERT INTO cds (artist, album, year) VALUES (?, ?, ?)'
         con = sqlite3.connect(self.database)
             
@@ -39,7 +39,7 @@ class Cd(object):
         
     @Logar  
     def delete(self, cod):
-        print "==> Cd.delete(",cod,")"
+        #print "==> Cd.delete(",cod,")"
         sql = 'DELETE FROM cds WHERE cod = ?'
         con = sqlite3.connect(self.database)
 
@@ -50,7 +50,7 @@ class Cd(object):
         
     @Logar  
     def getAll(self):
-        print "==> Cd.getall()"
+        #print "==> Cd.getall()"
         _all = []
         sql = 'SELECT cod, artist, album, year FROM cds'
         con = sqlite3.connect(self.database)
@@ -62,7 +62,7 @@ class Cd(object):
         for i in result:
             row = list(i)
             cd = Cd(cod=row[0], artist=row[1], album=row[2], year=row[3])
-            print '==> Processando', cd.__dict__
+            #print '==> Processando', cd.__dict__
             _all.append(cd)
 
         con.close()
@@ -70,7 +70,7 @@ class Cd(object):
 
     @Logar  
     def __str__(self):
-        return 'Cod: %d\tArtist: %s\tAlbum: %s\tYear: %s' % self.data()
+        return 'Cod: %d\t\tArtista: %s\t\tAlbum: %s\t\tAno: %s' % self.data()
 
 if __name__ == "__main__":
     print "Execute ./main.py"
