@@ -1,5 +1,5 @@
-from view import *
-from model import *
+from view import View
+from model import Cd
 
 class Controller(object):
  

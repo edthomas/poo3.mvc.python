@@ -9,7 +9,7 @@ class View():
 		artist = raw_input("Artist: ")
 		album = raw_input("Album: ")
 		year = raw_input("Year: ")
-		newCd = (artist,album,year)
+		newCd = Cd(artist, album, year)
 		controller.callInsert(newCd)
 		print("New cd inserted sucessfully")
 		self.showMenu		
